@@ -1,0 +1,434 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap');
+
+:root{
+    --Bg-color: #0f2c46;
+    --Bg2-color: #0a1926;
+    --Text: #dfe6ec;
+    --input-bg:#121212;
+    --user-message-bg: #1c2e41;
+    --other-message-bg: #2a3d52 ;
+    --btn-color:#4a7b96;
+    --btn-hover-color: #628ea6;
+
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    /* color: var(--Text); */
+}
+
+body{
+    background:var(--Bg2-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.wrapper{
+    background-color: var(--Bg-color);
+    width: 450px;
+    border-radius: 16px;
+    
+    box-shadow: 0 0 128px rgba(0, 0, 0, 0.1),
+                0 32px 200px -48px rgba(100, 100, 100, 0.5);
+
+}
+
+/* signup form css  */
+
+.form{
+    padding: 25px 30px;
+    color: var(--Text);
+}
+.form header{
+    font-size: 25px;
+    font-weight: 600;
+    color: var(--Text);
+    border-bottom: 1px solid #2a3d52 ;
+}
+.form form{
+    margin: 20px 0;
+}
+.form form .error-txt{
+    color: #721c24;
+    background-color: #f8d7da;
+    padding: 8px 10px;
+    text-align: center;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    border: 1px solid #f5c6cb;
+    display: none;  
+}
+.form form .field{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px; 
+    position: relative;
+}
+.form form .field .input{
+    outline: none;
+}
+
+.form form .name-details{
+    display: flex;
+}
+.form form .name-details .field{
+    margin-right: 10px;
+}
+
+.form form .name-details .field:last-child{
+    margin-left: 10px;
+}
+
+.form form .input input{
+    height: 40px;
+    width: 100%;
+    padding: 0 10px;
+    border-radius: 5px;
+    border: 1px solid #2a3d52;
+    background-color: var(--input-bg);
+    color: var(--Text);
+    font-size: 16px;
+}
+
+.form form  label{
+    color: var(--Text);
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.form form .image input{
+    font-size: 17px;
+}
+
+.form form .button input{
+    height: 40px;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--btn-color);
+    color: var(--Text);
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.form form .button input:hover{
+    background-color: var(--btn-hover-color);
+}
+
+.form .link{
+    margin-top: 20px;
+    text-align: center;
+}
+
+.form .link a{
+    color: var(--Text);
+    text-decoration: none;
+    font-size: 16px;
+}
+.form .link a:hover{
+    text-decoration: underline;
+}
+
+.form form .field i{
+    position: absolute;
+    right: 15px;
+    top: 70%;
+    transform: translateY(-50%);
+    color: #ccc;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.form form .field i.active::before{
+    color: var(--btn-hover-color);
+    content: "\f070";
+}
+
+/* user styling */
+
+.users{
+    padding: 25px 30px;
+}
+.users header ,.users-list a{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   padding-bottom: 20px;
+   border-bottom: 1px solid #2a3d52;
+   color: var(--Text);
+}
+
+.wrapper img{
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+:is(.users , .users-list) .content{
+    display: flex;
+    align-items: center;
+}
+
+.users header .content img{
+   height: 50px;
+   width: 50px;
+}
+
+:is(.users , .users-list) .details{
+    margin-left: 15px;
+}
+
+:is(.users , .users-list) .details span{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--Text);
+}   
+.users header .logout{
+    color: var(--Text);
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: var(--input-bg);
+}
+
+.users header .logout:hover{
+    background-color: var(--btn-hover-color);
+}
+
+.users .search{
+    margin: 20px 0;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-between;
+   
+}
+.users .search .text{
+    color: var(--Text);
+    font-size: 18px;
+}
+.users .search input{
+    position: absolute;
+    height: 42px;
+    width: calc(100% - 50px);
+    padding: 0 13px;
+    border-radius: 5px 0 0 5px;
+    border: 1px solid #2a3d52;
+    background-color: var(--input-bg);
+    color: var(--Text);
+    font-size: 16px;
+    outline: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+.users .search input.active{
+    opacity: 1;
+    pointer-events: auto;
+}
+.users .search button{
+    height: 40px;
+    width: 47px;
+    border: none;
+    outline: none;
+    background-color: var(--Bg-color);
+    color: var(--Text);
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 0 5px 5px 0;
+}
+
+
+.users .search button.active{
+    background-color: var(--btn-hover-color);
+}
+
+.users .search button.active i::before{
+    content: "\f00d";
+}
+
+.users-list a .content img{
+    height: 40px;
+    width: 40px;
+
+}
+
+.users-list {
+    max-height: 350px;
+    overflow-y: auto;
+}
+
+:is(.chat-box ,.users-list)::-webkit-scrollbar{
+    width: 0px;
+}
+
+.users-list a{
+    margin-bottom: 10px;
+    page-break-after: 10px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 5px;
+    border-bottom-color: var(--btn-hover-color);
+    transition: all 0.3s ease;
+}
+
+.users-list a:hover{
+    background-color: var(--btn-hover-color);
+}
+
+.users-list a:last-child{
+    margin-bottom: 0;
+    border-bottom: none;
+}
+.users-list a .content,
+.users-list a .status-dot{
+    font-size: 12px;
+    color: var(--text);
+}
+
+.users-list a .content p{
+    color :var(--btn-hover-color) ;
+}
+
+/* php offline class */
+.users-list a .status-dot.offline{
+    background-color:#ccc;
+}
+
+/* chat area */
+
+.chat-area{
+    padding: 25px 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    color: var(--Text);
+}
+.chat-area header{
+    display: flex;
+    align-items: center;
+    padding-bottom: 18px 30px;
+}
+.chat-area header img{
+    height: 45px;
+    width: 45px;
+    margin: 0 15px;
+}
+
+.chat-area header .back-button{
+    font-size:18px ;
+    color: var(--Text);
+}
+
+.chat-area header span{
+    font-size: 18px;
+    font-weight: 500;
+    color: var(--Text);
+}
+
+.chat-box .chat p{
+    word-wrap: break-word;
+}
+
+.chat-box{
+    height: 500px;
+    padding: 10px 10px 20px 10px;
+    background-color: var(--Bg2-color);
+    border-radius: 15px;
+    margin-top: 15px;
+    overflow: auto;
+}
+
+.chat-box .outgoing{
+    display: flex;
+    justify-content: flex-end;
+   
+}
+.chat-box .outgoing .details{
+    background-color: var(--user-message-bg);
+    color: var(--Text);
+    padding: 10px 15px;
+    border-radius: 18px 18px 0 18px;
+    max-width: calc(100% - 130px);
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 139, 0.6); /* DodgerBlue */
+}
+.chat-box .outgoing .time {
+    font-size: 10px;
+    color: #ccc;
+    position: absolute;
+    bottom: -20px;
+    right: 5px;
+    
+}
+.chat-box .incoming .details{
+    background-color: var(--other-message-bg);
+    color: var(--Text);
+    padding: 10px 15px;
+    border-radius: 18px 18px 18px 0px;
+    max-width: calc(100% - 130px);
+    position: relative;
+     box-shadow: 0 5px 15px rgba(30, 144, 255, 0.6); /* DodgerBlue */
+}
+
+.chat-box .incoming{
+    display: flex;
+    align-items: flex-end;
+    margin: 15px 0;
+}
+.chat-box .incoming .time {
+    font-size: 10px;
+    color: #ccc;
+    position: absolute;
+    bottom: -20px;
+    left: 5px;
+}
+
+.chat-box .incoming img{
+    height: 35px;
+    width: 35px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+
+.typing-area{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 15px;
+    background-color: var(--Bg-color);
+    border-radius: 15px;
+}
+.typing-area input{
+    height: 40px;
+    width: calc(100% - 50px);
+    padding: 0 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--input-bg);
+    color: var(--Text);
+    font-size: 16px;
+    outline: none;
+}
+.typing-area button{
+    height: 39px;
+    width: 40px;
+    border: none;
+    outline: none;
+    background-color: var(--btn-color);
+    color: var(--Text);
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+    border-radius: 5px;
+}
