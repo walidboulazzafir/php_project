@@ -42,8 +42,9 @@ if (!isset($_SESSION['unique_id'])) {
            
         </section>
     </div>
-    <script type="module" src="../js/user.js"></script>
-    <script type="module" src="../js/users.js"></script>
+    <script src="../js/user.js"></script>
+    <script src="../js/users.js"></script>
+    <script src="../js/searchbar.js"></script>
 
 </body>
 </html>
