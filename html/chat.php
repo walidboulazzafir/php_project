@@ -1,74 +1,41 @@
 <?php include_once "./header.php"; ?>
+<?php
+session_start();
+if (!isset($_SESSION['unique_id'])) {
+    header("location: login.php");
+}
+?>
 <body>
     <div class="wrapper">
         <section class="chat-area">
             <header>
-                <a href="#" class="back-button"><i class="fas fa-arrow-left"></i></a>
-                <img src="../imges/hellokity.jpg" alt="">
+            <?php
+            include_once "./php/config.php";
+            $user_id = mysqli_real_escape_string($conn, $_GET['user_id']);
+            $sql = mysqli_query($conn, "SELECT * FROM users WHERE unique_id = {$user_id}");
+            if (mysqli_num_rows($sql) > 0) {
+                $row = mysqli_fetch_assoc($sql);
+            }
+            ?>
+                <a href="users.php" class="back-button"><i class="fas fa-arrow-left"></i></a>
+                <img src="./images/<?php echo $row['img']; ?>" alt="">
                 <div class="details">
-                    <span>WALID</span>
-                    <p>Active now</p>
+                    <span><?php echo $row['fname'] . " " . $row['lname']; ?></span>
+                    <p><?php echo $row['status']; ?></p>
                 </div>
             </header>
             <div class="chat-box">
-                <div class="chat outgoing">
-                    <div class="details">
-                        <p>Hello! How are you?</p>
-                        <span class="time">10:00 AM</span>
-                    </div>
-                </div>
-                <div class="chat incoming">
-                    <img src="../imges/hellokity.jpg" alt="">
-                    <div class="details">
-                        <p>Doing well, just busy with work.</p>
-                        <span class="time">10:02 AM</span>
-                    </div>
-                </div>
-                <div class="chat outgoing">
-                    <div class="details">
-                        <p>Hello! How are you?</p>
-                        <span class="time">10:00 AM</span>
-                    </div>
-                </div>
-                <div class="chat incoming">
-                    <img src="../imges/hellokity.jpg" alt="">
-                    <div class="details">
-                        <p>Doing well, just busy with work.</p>
-                        <span class="time">10:02 AM</span>
-                    </div>
-                </div>
-                <div class="chat outgoing">
-                    <div class="details">
-                        <p>Hello! How are you?</p>
-                        <span class="time">10:00 AM</span>
-                    </div>
-                </div>
-                <div class="chat incoming">
-                    <img src="../imges/hellokity.jpg" alt="">
-                    <div class="details">
-                        <p>Doing well, just busy with work.</p>
-                        <span class="time">10:02 AM</span>
-                    </div>
-                </div>
-                <div class="chat outgoing">
-                    <div class="details">
-                        <p>Hello! How are you?</p>
-                        <span class="time">10:00 AM</span>
-                    </div>
-                </div>
-                <div class="chat incoming">
-                    <img src="../imges/hellokity.jpg" alt="">
-                    <div class="details">
-                        <p>Doing well, just busy with work.</p>
-                        <span class="time">10:02 AM</span>
-                    </div>
-                </div>
+                
             </div>
-            <form action="#" class="typing-area">
-                <input type="text" placeholder="Type a message here...">
+            <form action="#" class="typing-area" autocomplete="off">
+                <input type="text" name="outgoing_id" value="<?php echo $_SESSION['unique_id']; ?>" hidden>
+                <input type="text" name="incoming_id" value="<?php echo $user_id; ?>" hidden>
+                <input type="text" class="input-field" name="message" placeholder="Type a message here...">
                 <button><i class="fab fa-telegram-plane"></i></button>
         </section>
     </div>
-    
+
+    <script src="../js/chat.js"></script>
+
 </body>
 </html>
