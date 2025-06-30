@@ -1,4 +1,3 @@
- const searchBtn  = document.querySelector('.users .search button');
 searchBar.onkeyup = () => {
     let searchTerm = searchBar.value;
     if (searchTerm !=""){
@@ -19,5 +18,3 @@ searchBar.onkeyup = () => {
     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhr.send("searchTerm=" + searchTerm);
 }
-
-console.log("Search bar script loaded");

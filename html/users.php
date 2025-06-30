@@ -27,7 +27,7 @@ if (!isset($_SESSION['unique_id'])) {
                         <p><?php echo $row['status']; ?></p>
                     </div>
                 </div>
-                <a href="#" class="logout">Logout</a>
+                <a href="php/logout.php?logout_id=<?php echo $row['unique_id']; ?>" class="logout">Logout</a>
             </header>
 
             <div class="search">
@@ -44,7 +44,7 @@ if (!isset($_SESSION['unique_id'])) {
     </div>
     <script src="../js/user.js"></script>
     <script src="../js/users.js"></script>
-    <script src="../js/searchbar.js"></script>
+    <script src="../js/search-bar.js"></script>
 
 </body>
 </html>

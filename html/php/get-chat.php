@@ -11,13 +11,13 @@
         if (mysqli_num_rows($query) > 0) {
             while ($row = mysqli_fetch_assoc($query)) {
                if($row ['outgoing_msg_id'] === $outgoing_id) {
-                    $output .= '<div class="chat outgoing">
+                    $output .= '<div class="chat outgoing" style="margin: 20px 0;">
                                     <div class="details">
                                         <p>' . $row['msg'] . '</p>
                                     </div>
                                 </div>';
                }else{
-                    $output .= '<div class="chat incoming">
+                    $output .= '<div class="chat incoming" style="margin: 20px 0>
                                     <img src="images/'.$row['img'].'" alt="">
                                     <div class="details">
                                         <p>' . $row['msg'] . '</p>

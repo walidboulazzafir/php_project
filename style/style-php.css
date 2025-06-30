@@ -74,9 +74,7 @@ body{
     outline: none;
 }
 
-.form form .name-details{
-    display: flex;
-}
+
 .form form .name-details .field{
     margin-right: 10px;
 }
@@ -293,7 +291,7 @@ body{
 .users-list a .content,
 .users-list a .status-dot{
     font-size: 12px;
-    color: var(--text);
+    color: rgb(58, 255, 58);
 }
 
 .users-list a .content p{
@@ -301,8 +299,9 @@ body{
 }
 
 /* php offline class */
+
 .users-list a .status-dot.offline{
-    background-color:#ccc;
+    color:red;
 }
 
 /* chat area */
@@ -354,6 +353,10 @@ body{
     justify-content: flex-end;
    
 }
+
+div.chat.outgoing{
+    margin: 20px 0;
+}
 .chat-box .outgoing .details{
     background-color: var(--user-message-bg);
     color: var(--Text);
@@ -376,6 +379,7 @@ body{
     color: var(--Text);
     padding: 10px 15px;
     border-radius: 18px 18px 18px 0px;
+    margin: 20px 0;
     max-width: calc(100% - 130px);
     position: relative;
      box-shadow: 0 5px 15px rgba(30, 144, 255, 0.6); /* DodgerBlue */
@@ -384,15 +388,9 @@ body{
 .chat-box .incoming{
     display: flex;
     align-items: flex-end;
-    margin: 15px 0;
+    margin:20px 0;
 }
-.chat-box .incoming .time {
-    font-size: 10px;
-    color: #ccc;
-    position: absolute;
-    bottom: -20px;
-    left: 5px;
-}
+
 
 .chat-box .incoming img{
     height: 35px;
